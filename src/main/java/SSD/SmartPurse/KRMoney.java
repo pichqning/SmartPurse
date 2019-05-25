@@ -2,13 +2,13 @@ package SSD.SmartPurse;
 
 public class KRMoney extends Money {
 
-    public KRMoney(int value) {
+    public KRMoney(double value) {
         this.value = value;
         this.currency = "Won";
     }
 
     @Override
-    public int getValue() {
+    public double getValue() {
         return super.getValue();
     }
 

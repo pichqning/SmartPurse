@@ -36,17 +36,16 @@ public class App {
             }
 
             switch (Integer.parseInt(input)) {
-                /**
-                 * addMoney
-                 * */
+
                 case 0:
                     System.out.println("Please rerun the program.");
                     break;
-
+                    /**
+                     * addMoney
+                     * */
                 case 1:
                     boolean addmoneyRunning = true;
                     while (addmoneyRunning) {
-
                         System.out.println("\n** Exit: Input -1 to money");
                         System.out.print("Please Input Money with currency (ex. 100 baht): ");
                         money = scanner.nextInt();
@@ -81,11 +80,17 @@ public class App {
 
                     }
                     break;
+                    /**
+                     * Show all money
+                     * */
                 case 3:
                     System.out.println("-----------------------");
                     purse.showAllMoney();
                     System.out.println("-----------------------");
                     break;
+                /**
+                 * Show specific currency
+                  */
                 case 4:
                     boolean showMoneyRunning = true;
                     while (showMoneyRunning) {
@@ -103,8 +108,10 @@ public class App {
                     }
                     System.out.println();
                     break;
-                case 5:
 
+                case 5:
+                //TODO print convert and let user select the currency
+                    //TODO purse.convertTo(int menu)
                     break;
 
                 default:

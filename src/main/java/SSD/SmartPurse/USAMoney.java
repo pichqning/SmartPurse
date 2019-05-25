@@ -2,13 +2,13 @@ package SSD.SmartPurse;
 
 public class USAMoney extends Money {
 
-    public USAMoney(int value) {
+    public USAMoney(double value) {
         this.value = value;
         this.currency = "Dollar";
     }
 
     @Override
-    public int getValue() {
+    public double getValue() {
         return super.getValue();
     }
 

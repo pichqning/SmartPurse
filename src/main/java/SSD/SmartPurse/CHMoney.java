@@ -2,13 +2,13 @@ package SSD.SmartPurse;
 
 public class CHMoney extends Money {
 
-    public CHMoney(int value) {
+    public CHMoney(double value) {
         this.value = value;
         this.currency = "Yuan";
     }
 
     @Override
-    public int getValue() {
+    public double getValue() {
         return super.getValue();
     }
 

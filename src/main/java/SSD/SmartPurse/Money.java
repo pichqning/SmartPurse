@@ -2,10 +2,10 @@ package SSD.SmartPurse;
 
 public class Money {
 
-    protected int value;
+    protected double value;
     protected String currency;
 
-    public Money (int value) {
+    public Money (double value) {
 
     }
 
@@ -13,7 +13,7 @@ public class Money {
 
     }
 
-    public int getValue() {
+    public double getValue() {
         return value;
     }
 

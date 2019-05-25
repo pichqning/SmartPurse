@@ -2,13 +2,13 @@ package SSD.SmartPurse;
 
 public class THMoney extends Money {
 
-    public THMoney(int value) {
+    public THMoney(double value) {
         this.value = value;
         this.currency = "Baht";
     }
 
     @Override
-    public int getValue() {
+    public double getValue() {
         return super.getValue();
     }
 
