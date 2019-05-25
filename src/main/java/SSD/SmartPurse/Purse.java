@@ -81,6 +81,7 @@ public class Purse {
                 break;
 
             default:
+                currencyS = new NullMoney(0).getCurrency();
 
         }
         return currencyS;

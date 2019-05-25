@@ -15,4 +15,5 @@ public class JPCalculator implements Calculator {
         double other = Currency.valueOf(curr).getValue();
         return value* val /other;
     }
+
 }
