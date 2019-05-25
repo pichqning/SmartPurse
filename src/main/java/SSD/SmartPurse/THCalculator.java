@@ -1,18 +1,24 @@
 package SSD.SmartPurse;
 
+import java.util.List;
+
 public class THCalculator implements Calculator {
 
     private double THval;
 
     public THCalculator (){
-        THval = Currency.valueOf("baht").getValue();
+        THval = Currency.baht.getValue();
     }
 
     @Override
-    public double convert(Money money) {
+    public Money convert(List<Money> monies) {
+        double sum = 0;
+        for (Money money : monies) {
         double value = money.getValue();
         String curr = money.getCurrency().toLowerCase();
         double other = Currency.valueOf(curr).getValue();
-        return value*THval/other;
+        sum += value*other/THval;
+        }
+        return new THMoney(sum);
     }
 }

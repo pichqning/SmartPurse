@@ -6,7 +6,7 @@ package SSD.SmartPurse;
  */
 
 public enum Currency {
-    usd(1.00),
+    dollar(1.00),
     yen(0.0091),
     won(0.00084),
     baht(0.031),

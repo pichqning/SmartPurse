@@ -23,7 +23,7 @@ public class App {
 
         boolean running = true;
         String input;
-        int money;
+        double money;
         String curr;
         System.out.println("Welcome to Smartpurse!");
         while (running) {
@@ -48,7 +48,7 @@ public class App {
                     while (addmoneyRunning) {
                         System.out.println("\n** Exit: Input -1 to money");
                         System.out.print("Please Input Money with currency (ex. 100 baht): ");
-                        money = scanner.nextInt();
+                        money = scanner.nextDouble();
                         if (money == -1) {
                             addmoneyRunning = false;
                             System.out.println();
@@ -69,7 +69,7 @@ public class App {
                     while (depositRunning) {
                         System.out.println("\n** Exit: Input -1 to money");
                         System.out.print("Please Input Money with currency (ex. 100 baht): ");
-                        money = scanner.nextInt();
+                        money = scanner.nextDouble();
                         if (money == -1) {
                             addmoneyRunning = false;
                             System.out.println();
@@ -110,8 +110,12 @@ public class App {
                     break;
 
                 case 5:
-                //TODO print convert and let user select the currency
-                    //TODO purse.convertTo(int menu)
+                    printConvertMenu();
+                    System.out.print("Selected: ");
+                    input = scanner.next();
+                    purse.convert(Integer.parseInt(input));
+                    System.out.println("----------");
+                    System.out.println();
                     break;
 
                 default:

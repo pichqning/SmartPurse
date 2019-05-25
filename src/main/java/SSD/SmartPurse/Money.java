@@ -23,6 +23,6 @@ public class Money {
 
     @Override
     public String toString() {
-        return String.format("%d %s", value,currency);
+        return String.format("%.3f %s", value,currency);
     }
 }

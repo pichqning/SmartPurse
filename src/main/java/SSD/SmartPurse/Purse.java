@@ -6,6 +6,7 @@ import java.util.List;
 public class Purse {
     public static Purse instance;
     public List<Money> moneyList;
+    private Calculator calculator;
 
     public static Purse getInstance() {
         if (instance == null) {
@@ -14,15 +15,20 @@ public class Purse {
         return instance;
     }
 
+    public void setCalculator(Calculator calculator) {
+        this.calculator = calculator;
+    }
+
     public Purse() {
         moneyList = new ArrayList<Money>();
+        calculator = new THCalculator();
     }
 
     public List<Money> getMoneyList() {
         return moneyList;
     }
 
-    public void addMoney(int value, String curr) {
+    public void addMoney(double value, String curr) {
 
         if (value > 0) {
 
@@ -91,7 +97,7 @@ public class Purse {
         try {
             String SpecificCurr = checkCurrency(choice);
 
-            int summation = 0;
+            double summation = 0;
             for (int i = 0; i < moneyList.size(); i++) {
                 if (moneyList.get(i).getCurrency().equalsIgnoreCase(SpecificCurr)) {
                     summation += moneyList.get(i).getValue();
@@ -105,9 +111,9 @@ public class Purse {
         }
     }
 
-    public void deposit (int value , String curr) {
+    public void deposit(double value, String curr) {
         int oldSize = moneyList.size();
-        for (int i = 0 ; i < moneyList.size() ; i++) {
+        for (int i = 0; i < moneyList.size(); i++) {
             if (moneyList.get(i).getValue() == value && moneyList.get(i).getCurrency().equalsIgnoreCase(curr)) {
                 moneyList.remove(i);
                 System.out.println("Deposit " + moneyList.get(i).getValue() + " " + moneyList.get(i).getCurrency() + " Successful");
@@ -116,5 +122,34 @@ public class Purse {
 
         if (oldSize == moneyList.size()) System.out.println("No " + value + " " + curr + " in your purse.");
 
+    }
+
+    public void convert(int choice) {
+        switch (choice) {
+            case 1:
+                this.calculator = new THCalculator();
+                break;
+            case 2:
+                this.calculator = new KRCalculator();
+                break;
+            case 3:
+                this.calculator = new JPCalculator();
+                break;
+            case 4:
+                this.calculator = new USCalculator();
+                break;
+            case 5:
+                this.calculator = new UKCalculator();
+                break;
+            case 6:
+                this.calculator = new CHCalculator();
+                break;
+
+            default:
+                this.calculator = new THCalculator();
+        }
+
+        Money convertMoney = calculator.convert(moneyList);
+        System.out.println(convertMoney.toString());
     }
 }
