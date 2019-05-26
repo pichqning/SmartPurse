@@ -17,7 +17,6 @@ Feature: Show money in any currency
     When I deposit all money in the purse
 
   Scenario: No any currency
-
     Then amount of baht value should be 0.0
     Then amount of won value should be 0.0
     When I add more money which is 500000 baht
