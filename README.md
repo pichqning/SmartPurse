@@ -19,7 +19,7 @@ Part of the design pattern I use 3 design pattern which is Singleton, Strategy, 
 >>
 ![](./image/app1.png)
 > Select the function you want to use. If you select the add or deposit money you will see the menu as the picture below.
-<br>
+>>
 >Then input the money with currency 
 ><b> Ex. 100 baht</b> <br>
 >   <i>If you want to go back to main menu please type <b> -1 </b></i>
