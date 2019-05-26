@@ -1,7 +1,7 @@
-#Smart purse
+<h1>Smart purse</h1>
 Smart purse is the application that can store the money with many currencies such as Baht, Yen, etc. Not only can add and deposit the money, but also can convert and calculator a specific currency that you want to know. Example, you have 100 baht in your purse, you want to know how many you got in dollar currency? This application can help! 
 
-##How to use it?
+<h2>How to use it?</h2>
 
 > Run the Application and you will see the Main Menu <br>
 >>
@@ -24,6 +24,6 @@ Then input the money with currency
 > If you want to exit the program then select choice 7.
 >>
 
-##UML Diagram & Design Pattern
+<h2>UML Diagram & Design Pattern</h2>
 
 
