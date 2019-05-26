@@ -3,11 +3,13 @@ Smart purse is the application that can store the money with many currencies suc
 <h2>UML Diagram & Design Pattern</h2>
 <h3>Design pattern</h3>
 Part of the design pattern I use 3 design pattern which is Singleton, Strategy, and NullObject design pattern. 
-<ol> Singleton is used in App and Purse class.
-<ol> Strategy is used in Calculator interface and Money class
-<ol> NullObject use for the default value of money.
-
+<ol>
+<li> Singleton is used in App and Purse class.
+<li> Strategy is used in Calculator interface and Money class
+<li> NullObject use for the default value of money.
+</ol>
 <h3>UML Diagram</h3>
+
 ![](./image/uml-1.jpg)
 
 
