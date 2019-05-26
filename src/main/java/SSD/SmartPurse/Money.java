@@ -14,7 +14,8 @@ public class Money {
     }
 
     public double getValue() {
-        return value;
+        double formatVal = Double.parseDouble(String.format("%.3f",value));
+        return formatVal;
     }
 
     public String getCurrency() {

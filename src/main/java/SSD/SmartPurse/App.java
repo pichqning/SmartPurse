@@ -103,7 +103,8 @@ public class App {
                             break;
                         }
                         System.out.println("----------");
-                        purse.showSpecific(Integer.parseInt(input));
+                        String amount = purse.showSpecific(Integer.parseInt(input));
+                        System.out.println("Amount: " + amount);
                         System.out.println("----------");
                     }
                     System.out.println();
@@ -113,12 +114,18 @@ public class App {
                     printConvertMenu();
                     System.out.print("Selected: ");
                     input = scanner.next();
-                    purse.convert(Integer.parseInt(input));
+                    Money outcome = purse.convert(Integer.parseInt(input));
+                    System.out.println(outcome.toString());
                     System.out.println("----------");
                     System.out.println();
                     break;
 
-                default:
+                case 6:
+                    purse.removeAll();
+                    System.out.println("Successfully remove all money.");
+                    break;
+
+                    default:
                     System.out.println("Thanks!");
                     running = false;
 
@@ -136,7 +143,8 @@ public class App {
         System.out.println("3. Show all Money");
         System.out.println("4. Show specific currency");
         System.out.println("5. Visual convert currency");
-        System.out.println("6. Exit");
+        System.out.println("6. Empty the purse");
+        System.out.println("7. Exit");
     }
 
     public static void printConvertMenu() {

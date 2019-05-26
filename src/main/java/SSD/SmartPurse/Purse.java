@@ -68,7 +68,7 @@ public class Purse {
         String currencyS = "";
         switch (choice) {
             case 1:
-                currencyS = "Baht";
+                currencyS = "baht";
                 break;
             case 2:
                 currencyS = "won";
@@ -80,7 +80,7 @@ public class Purse {
                 currencyS = "dollar";
                 break;
             case 5:
-                currencyS = "Pound";
+                currencyS = "pound";
                 break;
             case 6:
                 currencyS = "yuan";
@@ -93,55 +93,66 @@ public class Purse {
         return currencyS;
     }
 
-    public void showSpecific(int choice) {
+    public String showSpecificByCur (String SpecificCurr) {
+        double summation = 0.000;
+        for (int i = 0; i < moneyList.size(); i++) {
+            if (moneyList.get(i).getCurrency().equalsIgnoreCase(SpecificCurr)) {
+                summation += moneyList.get(i).getValue();
+                System.out.println(moneyList.get(i).toString());
+            }
+        }
+        return String.format("%.3f %s" , summation,SpecificCurr);
+    }
+
+    public String showSpecific(int choice) {
         try {
             String SpecificCurr = checkCurrency(choice);
-
-            double summation = 0;
-            for (int i = 0; i < moneyList.size(); i++) {
-                if (moneyList.get(i).getCurrency().equalsIgnoreCase(SpecificCurr)) {
-                    summation += moneyList.get(i).getValue();
-                    System.out.println(moneyList.get(i).toString());
-                }
-            }
-            System.out.println("Amount: " + summation + " " + SpecificCurr);
+            return showSpecificByCur(SpecificCurr);
 
         } catch (Exception e) {
             System.out.println("Undefined command.");
         }
+        return new NullMoney(0).toString();
     }
 
-    public void deposit(double value, String curr) {
+    public Money deposit(double value, String curr) {
         int oldSize = moneyList.size();
         for (int i = 0; i < moneyList.size(); i++) {
             if (moneyList.get(i).getValue() == value && moneyList.get(i).getCurrency().equalsIgnoreCase(curr)) {
-                moneyList.remove(i);
                 System.out.println("Deposit " + moneyList.get(i).getValue() + " " + moneyList.get(i).getCurrency() + " Successful");
+                Money money = moneyList.get(i);
+                moneyList.remove(i);
+                return money;
             }
         }
 
         if (oldSize == moneyList.size()) System.out.println("No " + value + " " + curr + " in your purse.");
-
+        return new NullMoney(0);
     }
 
-    public void convert(int choice) {
-        switch (choice) {
-            case 1:
+    public Money convert(int choice) {
+        String curr = checkCurrency(choice);
+        return convertMoney(curr);
+    }
+
+    public Money convertMoney (String curr) {
+        switch (curr) {
+            case "baht":
                 this.calculator = new THCalculator();
                 break;
-            case 2:
+            case "won":
                 this.calculator = new KRCalculator();
                 break;
-            case 3:
+            case "yen":
                 this.calculator = new JPCalculator();
                 break;
-            case 4:
+            case "dollar":
                 this.calculator = new USCalculator();
                 break;
-            case 5:
+            case "pound":
                 this.calculator = new UKCalculator();
                 break;
-            case 6:
+            case "yuan":
                 this.calculator = new CHCalculator();
                 break;
 
@@ -150,6 +161,10 @@ public class Purse {
         }
 
         Money convertMoney = calculator.convert(moneyList);
-        System.out.println(convertMoney.toString());
+        return convertMoney;
+    }
+
+    public void removeAll() {
+        this.moneyList.clear();
     }
 }
